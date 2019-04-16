@@ -8,6 +8,9 @@
 #include <stdio.h>
 #include "definitions.h"
 
+
+//#define DEBUG
+
 void encode(
         FILE * in,
         FILE * out,
@@ -17,7 +20,8 @@ void encode(
 void decode(
         FILE * in,
         FILE * out,
-        SoR * root);
+        SoR * root,
+        unsigned int file_len);
 
 
 SoR * new_tree_node(unsigned char data, SoR * left, SoR * right);

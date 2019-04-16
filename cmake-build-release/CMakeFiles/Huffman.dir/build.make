@@ -33,19 +33,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2018.2.7\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2018.2.1\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "C:\Program Files\JetBrains\CLion 2018.2.7\bin\cmake\win\bin\cmake.exe" -E remove -f
+RM = "C:\Program Files\JetBrains\CLion 2018.2.1\bin\cmake\win\bin\cmake.exe" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = F:\ClionProjects\Huffman
+CMAKE_SOURCE_DIR = D:\ClionProjects\Huffman
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = F:\ClionProjects\Huffman\cmake-build-release
+CMAKE_BINARY_DIR = D:\ClionProjects\Huffman\cmake-build-release
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Huffman.dir/depend.make
@@ -58,55 +58,55 @@ include CMakeFiles/Huffman.dir/flags.make
 
 CMakeFiles/Huffman.dir/main.c.obj: CMakeFiles/Huffman.dir/flags.make
 CMakeFiles/Huffman.dir/main.c.obj: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=F:\ClionProjects\Huffman\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Huffman.dir/main.c.obj"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Huffman.dir\main.c.obj   -c F:\ClionProjects\Huffman\main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\ClionProjects\Huffman\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Huffman.dir/main.c.obj"
+	C:\PROGRA~1\HASKEL~1\847A5C~1.3\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Huffman.dir\main.c.obj   -c D:\ClionProjects\Huffman\main.c
 
 CMakeFiles/Huffman.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Huffman.dir/main.c.i"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E F:\ClionProjects\Huffman\main.c > CMakeFiles\Huffman.dir\main.c.i
+	C:\PROGRA~1\HASKEL~1\847A5C~1.3\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ClionProjects\Huffman\main.c > CMakeFiles\Huffman.dir\main.c.i
 
 CMakeFiles/Huffman.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Huffman.dir/main.c.s"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S F:\ClionProjects\Huffman\main.c -o CMakeFiles\Huffman.dir\main.c.s
+	C:\PROGRA~1\HASKEL~1\847A5C~1.3\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ClionProjects\Huffman\main.c -o CMakeFiles\Huffman.dir\main.c.s
 
 CMakeFiles/Huffman.dir/queue.c.obj: CMakeFiles/Huffman.dir/flags.make
 CMakeFiles/Huffman.dir/queue.c.obj: ../queue.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=F:\ClionProjects\Huffman\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Huffman.dir/queue.c.obj"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Huffman.dir\queue.c.obj   -c F:\ClionProjects\Huffman\queue.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\ClionProjects\Huffman\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Huffman.dir/queue.c.obj"
+	C:\PROGRA~1\HASKEL~1\847A5C~1.3\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Huffman.dir\queue.c.obj   -c D:\ClionProjects\Huffman\queue.c
 
 CMakeFiles/Huffman.dir/queue.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Huffman.dir/queue.c.i"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E F:\ClionProjects\Huffman\queue.c > CMakeFiles\Huffman.dir\queue.c.i
+	C:\PROGRA~1\HASKEL~1\847A5C~1.3\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ClionProjects\Huffman\queue.c > CMakeFiles\Huffman.dir\queue.c.i
 
 CMakeFiles/Huffman.dir/queue.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Huffman.dir/queue.c.s"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S F:\ClionProjects\Huffman\queue.c -o CMakeFiles\Huffman.dir\queue.c.s
+	C:\PROGRA~1\HASKEL~1\847A5C~1.3\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ClionProjects\Huffman\queue.c -o CMakeFiles\Huffman.dir\queue.c.s
 
 CMakeFiles/Huffman.dir/sort.c.obj: CMakeFiles/Huffman.dir/flags.make
 CMakeFiles/Huffman.dir/sort.c.obj: ../sort.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=F:\ClionProjects\Huffman\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Huffman.dir/sort.c.obj"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Huffman.dir\sort.c.obj   -c F:\ClionProjects\Huffman\sort.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\ClionProjects\Huffman\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Huffman.dir/sort.c.obj"
+	C:\PROGRA~1\HASKEL~1\847A5C~1.3\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Huffman.dir\sort.c.obj   -c D:\ClionProjects\Huffman\sort.c
 
 CMakeFiles/Huffman.dir/sort.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Huffman.dir/sort.c.i"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E F:\ClionProjects\Huffman\sort.c > CMakeFiles\Huffman.dir\sort.c.i
+	C:\PROGRA~1\HASKEL~1\847A5C~1.3\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ClionProjects\Huffman\sort.c > CMakeFiles\Huffman.dir\sort.c.i
 
 CMakeFiles/Huffman.dir/sort.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Huffman.dir/sort.c.s"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S F:\ClionProjects\Huffman\sort.c -o CMakeFiles\Huffman.dir\sort.c.s
+	C:\PROGRA~1\HASKEL~1\847A5C~1.3\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ClionProjects\Huffman\sort.c -o CMakeFiles\Huffman.dir\sort.c.s
 
 CMakeFiles/Huffman.dir/coding.c.obj: CMakeFiles/Huffman.dir/flags.make
 CMakeFiles/Huffman.dir/coding.c.obj: ../coding.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=F:\ClionProjects\Huffman\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/Huffman.dir/coding.c.obj"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Huffman.dir\coding.c.obj   -c F:\ClionProjects\Huffman\coding.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\ClionProjects\Huffman\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/Huffman.dir/coding.c.obj"
+	C:\PROGRA~1\HASKEL~1\847A5C~1.3\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Huffman.dir\coding.c.obj   -c D:\ClionProjects\Huffman\coding.c
 
 CMakeFiles/Huffman.dir/coding.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Huffman.dir/coding.c.i"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E F:\ClionProjects\Huffman\coding.c > CMakeFiles\Huffman.dir\coding.c.i
+	C:\PROGRA~1\HASKEL~1\847A5C~1.3\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ClionProjects\Huffman\coding.c > CMakeFiles\Huffman.dir\coding.c.i
 
 CMakeFiles/Huffman.dir/coding.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Huffman.dir/coding.c.s"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S F:\ClionProjects\Huffman\coding.c -o CMakeFiles\Huffman.dir\coding.c.s
+	C:\PROGRA~1\HASKEL~1\847A5C~1.3\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ClionProjects\Huffman\coding.c -o CMakeFiles\Huffman.dir\coding.c.s
 
 # Object files for target Huffman
 Huffman_OBJECTS = \
@@ -126,7 +126,7 @@ Huffman.exe: CMakeFiles/Huffman.dir/build.make
 Huffman.exe: CMakeFiles/Huffman.dir/linklibs.rsp
 Huffman.exe: CMakeFiles/Huffman.dir/objects1.rsp
 Huffman.exe: CMakeFiles/Huffman.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=F:\ClionProjects\Huffman\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable Huffman.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\ClionProjects\Huffman\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable Huffman.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Huffman.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -139,6 +139,6 @@ CMakeFiles/Huffman.dir/clean:
 .PHONY : CMakeFiles/Huffman.dir/clean
 
 CMakeFiles/Huffman.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" F:\ClionProjects\Huffman F:\ClionProjects\Huffman F:\ClionProjects\Huffman\cmake-build-release F:\ClionProjects\Huffman\cmake-build-release F:\ClionProjects\Huffman\cmake-build-release\CMakeFiles\Huffman.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\ClionProjects\Huffman D:\ClionProjects\Huffman D:\ClionProjects\Huffman\cmake-build-release D:\ClionProjects\Huffman\cmake-build-release D:\ClionProjects\Huffman\cmake-build-release\CMakeFiles\Huffman.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Huffman.dir/depend
 

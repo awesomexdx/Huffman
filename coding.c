@@ -32,13 +32,31 @@ SoR * build_tree(unsigned int * freq) {
         queueInsert(queue, a.priority + b.priority, new_tree_node(0, a.value, b.value));
     }
 
-    SoR * root = getMin(queue).value;
+    SoR * root = queue->nitems > 0 ? getMin(queue).value : NULL;
 
     queueFree(queue);
 
     return root;
 }
 
+
+typedef struct {
+    FILE * file;
+    unsigned int bit_pos;
+    unsigned int byte_pos;
+
+    unsigned char buff[BUFF_SIZE];
+
+} BitIOStruct;
+
+
+int writebit(
+        unsigned int bit,
+        BitIOStruct bit_struct)
+{
+
+    return 0;
+}
 
 void Make_codes(SoR *root, char * buff, size_t len, Code ** code_arr, FILE * fout)
 {
@@ -90,35 +108,6 @@ SoR * read_tree(FILE * fin) {
     }
 }
 
-int getbit(int k) // функция ,которая возвращает k-й бит из кода символа
-{
-    ;
-}
-
-void stupid_function(size_t bitcount, FILE * outfile) // нужна таблица кодов
-{
-    unsigned char out[] = {0};
-    size_t out_pos = 0;
-    size_t byte_pos = 0;
-    int bit;
-    for (size_t k=0; k<bitcount; k++) // bitcount - длина кода символа
-    {
-        bit = getbit(k);
-        out[out_pos]+=bit<<(7-byte_pos++);
-        if (byte_pos==8){
-            byte_pos = 0;
-            out_pos++;
-            if(out_pos>=8) {
-                fwrite(out, 1, out_pos, outfile);
-                memset(out, 0, out_pos);
-                out_pos = 0;
-
-            }
-        }
-    }
-}
-
-
 void encode(
         FILE * in,
         FILE * out,
@@ -143,9 +132,9 @@ void encode(
                 if (code[code_pos] == '1')
                     output_buff[byte_pos] |= 0x80 >> bit_pos; // 1000 0000
                 bit_pos++;
-
+#ifdef DEBUG
                 printf("%c", code[code_pos] == '1' ? '1' : '0');
-
+#endif
                 if (bit_pos == 8) {
                     bit_pos = 0;
                     byte_pos++;
@@ -157,8 +146,9 @@ void encode(
                     }
                 }
             }
-
+#ifdef DEBUG
             printf(" ");
+#endif
         }
     }
 
@@ -169,7 +159,8 @@ void encode(
 void decode(
         FILE * in,
         FILE * out,
-        SoR * root)
+        SoR * root,
+        unsigned int file_len)
 {
     char input_buff[BUFF_SIZE];
     char output_buff[BUFF_SIZE];
@@ -177,38 +168,58 @@ void decode(
     size_t input_len = 0;
     size_t output_pos = 0;
 
+    size_t byte_pos = 0;
+    size_t bit_pos = 0;
+
     SoR * node = root;
 
     int bit = 0;
 
+    //while (() > 0);
 
-    while ((input_len = fread(input_buff, 1, BUFF_SIZE, in)) > 0) {
-        for (size_t byte_pos = 0; byte_pos < input_len; byte_pos++) {
-            for (size_t bit_pos = 0; bit_pos < 8; )
-            {
-                if (node->left == NULL && node->right == NULL) {
-                    output_buff[output_pos++] = node->data;
-                    node = root;
+    for (unsigned int decoded_len = 0; decoded_len < file_len; )
+    {
+        if (node->left == NULL && node->right == NULL)
+        {
+            output_buff[output_pos++] = node->data;
+            node = root;
 
-                    if (output_pos == BUFF_SIZE) {
-                        fwrite(output_buff, 1, BUFF_SIZE, out);
-                        output_pos = 0;
-                    }
-                }
+            decoded_len++;
 
-                bit = (input_buff[byte_pos] >> (7 - bit_pos++)) & 0x01; // 0000 0001
-                // 0000 0001
-                printf("%c", bit ? '1' : '0'); //тернарный оператор
-
-                if (!bit)
-                    node = node->left; 
-                else
-                    node = node->right;
-
-                if (node->left == NULL && node->right == NULL)
-                    printf(" ");
+            if (output_pos == BUFF_SIZE) {
+                fwrite(output_buff, 1, BUFF_SIZE, out);
+                output_pos = 0;
             }
         }
+        else
+        {
+            if (bit_pos > 7)
+            {
+                bit_pos = 0;
+                byte_pos++;
+            }
+
+            if (byte_pos == input_len)
+            {
+                input_len = fread(input_buff, 1, BUFF_SIZE, in);
+                byte_pos = 0;
+            }
+
+            bit = (input_buff[byte_pos] >> (7 - bit_pos++)) & 0x01; // 0000 0001
+
+            printf("%c", bit ? '1' : '0'); //тернарный оператор
+
+            if (!bit)
+                node = node->left;
+            else
+                node = node->right;
+#ifdef DEBUG
+            if (node->left == NULL && node->right == NULL)
+                printf(" ");
+#endif
+        }
+
+
     }
 
     fwrite(output_buff, 1, output_pos, out);
