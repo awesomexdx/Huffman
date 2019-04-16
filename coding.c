@@ -50,12 +50,46 @@ typedef struct {
 } BitIOStruct;
 
 
-int writebit(
+inline int writebit(
         unsigned int bit,
-        BitIOStruct bit_struct)
+        BitIOStruct * bit_struct)
 {
+    bit_struct->buff[bit_struct->byte_pos] += (bit << (7 - bit_struct->bit_pos++));
+
+    if (bit_struct->bit_pos > 7) {
+        bit_struct->bit_pos = 0;
+        bit_struct->byte_pos++;
+        if (bit_struct->byte_pos == BUFF_SIZE)
+        {
+
+            bit_struct->byte_pos = 0;
+
+            fwrite(bit_struct->buff, 1, BUFF_SIZE, bit_struct->file);
+
+            memset(bit_struct->buff, 0, BUFF_SIZE);
+        }
+
+    }
 
     return 0;
+}
+
+inline int readbit(
+        BitIOStruct * bit_struct)
+{
+    if (bit_struct->bit_pos > 7) {
+        bit_struct->bit_pos = 0;
+        bit_struct->byte_pos++;
+        if (bit_struct->byte_pos == BUFF_SIZE)
+        {
+            bit_struct->byte_pos = 0;
+
+            fread(bit_struct->buff, 1, BUFF_SIZE, bit_struct->file);
+        }
+
+    }
+
+    return (bit_struct->buff[bit_struct->byte_pos] >> (7 - bit_struct->bit_pos++)) & 0x01;
 }
 
 void Make_codes(SoR *root, char * buff, size_t len, Code ** code_arr, FILE * fout)
