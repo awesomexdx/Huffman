@@ -8,6 +8,18 @@
 #include <stdio.h>
 #include "definitions.h"
 
+void encode(
+        FILE * in,
+        FILE * out,
+        Code ** code_table);
+
+
+void decode(
+        FILE * in,
+        FILE * out,
+        SoR * root);
+
+
 SoR * new_tree_node(unsigned char data, SoR * left, SoR * right);
 
 

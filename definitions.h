@@ -2,7 +2,7 @@
 #include "stdio.h"
 #include "stdlib.h"
 
-
+#define BUFF_SIZE   1024
 
 typedef struct st_tree_node SoR;
 struct st_tree_node {
