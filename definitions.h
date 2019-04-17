@@ -2,14 +2,29 @@
 #include "stdio.h"
 #include "stdlib.h"
 
-#define BUFF_SIZE   1024
+//#define DEBUG_OUTPUT
+
+//#define BIT_OUTPUT
+
+#define BUFF_SIZE   128
 
 typedef struct st_tree_node SoR;
 struct st_tree_node {
-	unsigned char data; // ASKII CODE
+	unsigned char data; // ASCII CODE
 	SoR * left;
 	SoR * right;
 };
+
+
+typedef struct {
+    FILE * file;
+    unsigned int bit_pos;
+    unsigned int byte_pos;
+
+    unsigned char buff[BUFF_SIZE];
+
+} BitIOStruct;
+
 
 typedef struct {
 	char * code;

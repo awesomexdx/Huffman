@@ -40,20 +40,13 @@ SoR * build_tree(unsigned int * freq) {
 }
 
 
-typedef struct {
-    FILE * file;
-    unsigned int bit_pos;
-    unsigned int byte_pos;
-
-    unsigned char buff[BUFF_SIZE];
-
-} BitIOStruct;
-
-
 inline int writebit(
         unsigned int bit,
         BitIOStruct * bit_struct)
 {
+#ifdef BIT_OUTPUT
+    printf("%d", bit);
+#endif
     bit_struct->buff[bit_struct->byte_pos] += (bit << (7 - bit_struct->bit_pos++));
 
     if (bit_struct->bit_pos > 7) {
@@ -88,55 +81,73 @@ inline int readbit(
         }
 
     }
-
+#ifdef BIT_OUTPUT
+    printf("%d", (bit_struct->buff[bit_struct->byte_pos] >> (7 - bit_struct->bit_pos)) & 0x01);
+#endif
     return (bit_struct->buff[bit_struct->byte_pos] >> (7 - bit_struct->bit_pos++)) & 0x01;
 }
 
-void Make_codes(SoR *root, char * buff, size_t len, Code ** code_arr, FILE * fout)
+void Make_codes(SoR *root, char * buff, size_t len, Code ** code_arr, FILE * fout,
+                BitIOStruct * bit_struct)
 {
     if (root->left == NULL && root->right == NULL) {
-        fwrite("1", 1, 1, fout);
+        writebit(1, bit_struct);
 
-        fwrite(&root->data, 1, 1, fout);
+        for (int k = 7; k >= 0; k--)
+            writebit((unsigned int)(root->data >> k) & 0x01, bit_struct);
 
         buff[len] = 0;
 
         code_arr[root->data] = malloc(sizeof(Code));
 
+        if (code_arr[root->data] == NULL) {
+            puts("OH GOD WHY ALLOCATION ERROR");
+            printf("--%d\n", len);
+            exit(EXIT_FAILURE);
+        }
+
         code_arr[root->data]->code = malloc(len);
 
-        code_arr[root->data]->length = len;
+        if (code_arr[root->data]->code == NULL) {
+            puts("OH GOD WHY ALLOCATION ERROR");
+            printf("==%d\n", len);
+            exit(EXIT_FAILURE);
+        }
 
+        code_arr[root->data]->length = len;
         strcpy(code_arr[root->data]->code, buff);
     }
     else {
-        fwrite("0", 1, 1, fout);
+        writebit(0, bit_struct);
 
         buff[len] = '0';
-        Make_codes(root->left, buff, len + 1, code_arr, fout);
+        Make_codes(root->left, buff, len + 1, code_arr, fout, bit_struct);
 
         buff[len] = '1';
-        Make_codes(root->right, buff, len + 1, code_arr, fout);
+        Make_codes(root->right, buff, len + 1, code_arr, fout, bit_struct);
     }
 }
 
 
-SoR * read_tree(FILE * fin) {
-    static unsigned char buff;
+SoR * read_tree(FILE * fin,
+                BitIOStruct * bit_struct) {
+    static int bit;
+    unsigned char buff = 0;
 
-    fread(&buff, 1, 1, fin);
+    bit = readbit(bit_struct);
 
     SoR * left = NULL;
     SoR * right = NULL;
 
-    if (buff == '1') {
-        fread(&buff, 1, 1, fin);
+    if (bit) {
+        for (int k = 7; k >= 0; k--)
+            buff += (readbit(bit_struct) << k);
 
         return new_tree_node(buff, NULL, NULL);
     }
     else {
-        left = read_tree(fin);
-        right = read_tree(fin);
+        left = read_tree(fin, bit_struct);
+        right = read_tree(fin, bit_struct);
 
         return new_tree_node('\0', left, right);
     }
@@ -145,14 +156,12 @@ SoR * read_tree(FILE * fin) {
 void encode(
         FILE * in,
         FILE * out,
-        Code ** code_table)
+        Code ** code_table,
+        BitIOStruct * bit_struct)
 {
-    char input_buff[BUFF_SIZE];
-    char output_buff[BUFF_SIZE] = { 0 };
+    unsigned char input_buff[BUFF_SIZE];
 
     size_t input_len = 0;
-    size_t byte_pos = 0;
-    size_t bit_pos = 0;
 
     char * code = NULL;
     unsigned int code_length = 0;
@@ -163,30 +172,19 @@ void encode(
             code_length = code_table[input_buff[k]]->length;
 
             for (unsigned int code_pos = 0; code_pos < code_length; code_pos++) {
-                if (code[code_pos] == '1')
-                    output_buff[byte_pos] |= 0x80 >> bit_pos; // 1000 0000
-                bit_pos++;
-#ifdef DEBUG
+                writebit((unsigned int) code[code_pos] - '0', bit_struct);
+#ifdef DEBUG_OUTPUT
                 printf("%c", code[code_pos] == '1' ? '1' : '0');
 #endif
-                if (bit_pos == 8) {
-                    bit_pos = 0;
-                    byte_pos++;
-
-                    if (byte_pos == BUFF_SIZE) {
-                        fwrite(output_buff, 1, BUFF_SIZE, out);
-                        memset(output_buff, 0, BUFF_SIZE);
-                        byte_pos = 0;
-                    }
                 }
-            }
-#ifdef DEBUG
+
+#ifdef DEBUG_OUTPUT
             printf(" ");
 #endif
         }
     }
 
-    fwrite(output_buff, 1, byte_pos + (bit_pos > 0 ? 1 : 0), out);
+    fwrite(bit_struct->buff, 1, bit_struct->byte_pos + (bit_struct->bit_pos > 0 ? 1 : 0), bit_struct->file);
 }
 
 
@@ -194,16 +192,12 @@ void decode(
         FILE * in,
         FILE * out,
         SoR * root,
-        unsigned int file_len)
+        unsigned int file_len,
+        BitIOStruct * bit_struct)
 {
-    char input_buff[BUFF_SIZE];
     char output_buff[BUFF_SIZE];
 
-    size_t input_len = 0;
     size_t output_pos = 0;
-
-    size_t byte_pos = 0;
-    size_t bit_pos = 0;
 
     SoR * node = root;
 
@@ -227,27 +221,15 @@ void decode(
         }
         else
         {
-            if (bit_pos > 7)
-            {
-                bit_pos = 0;
-                byte_pos++;
-            }
-
-            if (byte_pos == input_len)
-            {
-                input_len = fread(input_buff, 1, BUFF_SIZE, in);
-                byte_pos = 0;
-            }
-
-            bit = (input_buff[byte_pos] >> (7 - bit_pos++)) & 0x01; // 0000 0001
-
+            bit = readbit(bit_struct);
+#ifdef DEBUG_OUTPUT
             printf("%c", bit ? '1' : '0'); //тернарный оператор
-
+#endif
             if (!bit)
                 node = node->left;
             else
                 node = node->right;
-#ifdef DEBUG
+#ifdef DEBUG_OUTPUT
             if (node->left == NULL && node->right == NULL)
                 printf(" ");
 #endif
