@@ -101,16 +101,14 @@ void Make_codes(SoR *root, char * buff, size_t len, Code ** code_arr, FILE * fou
         code_arr[root->data] = malloc(sizeof(Code));
 
         if (code_arr[root->data] == NULL) {
-            puts("OH GOD WHY ALLOCATION ERROR");
-            printf("--%d\n", len);
+            printf("Allocation error: file %s line %d\n", __FILENAME__, __LINE__ - 3);
             exit(EXIT_FAILURE);
         }
 
         code_arr[root->data]->code = malloc(len);
 
         if (code_arr[root->data]->code == NULL) {
-            puts("OH GOD WHY ALLOCATION ERROR");
-            printf("==%d\n", len);
+            printf("Allocation error: file %s line %d\n", __FILENAME__, __LINE__ - 3);
             exit(EXIT_FAILURE);
         }
 

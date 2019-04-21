@@ -2,6 +2,10 @@
 #include "stdio.h"
 #include "stdlib.h"
 
+#include <string.h>
+
+#define __FILENAME__ (strrchr(__FILE__, '\\') ? strrchr(__FILE__, '\\') + 1 : __FILE__)
+
 //#define DEBUG_OUTPUT
 
 //#define BIT_OUTPUT
@@ -18,8 +22,8 @@ struct st_tree_node {
 
 typedef struct {
     FILE * file;
-    unsigned int bit_pos;
-    unsigned int byte_pos;
+    unsigned int bit_pos; //позиция бита в байте
+    unsigned int byte_pos; //
 
     unsigned char buff[BUFF_SIZE];
 
