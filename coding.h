@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef HUFFMAN_CODING_H
-#define HUFFMAN_CODING_H
+/*#ifndef HUFFMAN_CODING_H
+#define HUFFMAN_CODING_H*/
 
 
 #include <stdlib.h>
@@ -44,4 +44,4 @@ int writebit(
         unsigned int bit,
         BitIOStruct * bit_struct);
 
-#endif
+//#endif

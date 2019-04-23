@@ -2,7 +2,7 @@
 #include <string.h>
 
 
-inline SoR * new_tree_node(unsigned char data, SoR * left, SoR * right) {
+inline SoR * new_tree_node(unsigned char data, SoR * left, SoR * right) { // создание нового узла дерева
     SoR * new_node = malloc(sizeof(SoR));
 
     new_node->data = data;
@@ -13,28 +13,28 @@ inline SoR * new_tree_node(unsigned char data, SoR * left, SoR * right) {
 }
 
 
-SoR * build_tree(unsigned int * freq) {
-    Queue * queue = heap_create(256);
+SoR * build_tree(unsigned int * freq) { //построение дерева Хаффмана
+    Queue * queue = heap_create(256); // создаём очередь с приоритетом
 
     for (unsigned int i = 0; i < 256; i++)
     {
-        if (freq[i] != 0)
-            queueInsert(queue, freq[i], new_tree_node((unsigned char) i, 0, 0));
+        if (freq[i] != 0) // в качестве приоритета берём встречаемость символа
+            queueInsert(queue, freq[i], new_tree_node((unsigned char) i, 0, 0)); // добавляем элементы в очередь, приоритеты которых ненулевые
     }
 
-    QueueItem a;
+    QueueItem a; //создаём две переменные для узлов дерева
     QueueItem b;
 
-    while (queue->nitems > 1) {
-        a = getMin(queue);
+    while (queue->nitems > 1) { //пока в очереди больше одного элемента
+        a = getMin(queue); // извлекаем два элемента с наименьшим приоритетом
         b = getMin(queue);
 
-        queueInsert(queue, a.priority + b.priority, new_tree_node(0, a.value, b.value));
+        queueInsert(queue, a.priority + b.priority, new_tree_node(0, a.value, b.value)); // добавляем в очередь новый элемент с суммой минимальных приоритетов
     }
 
-    SoR * root = queue->nitems > 0 ? getMin(queue).value : NULL;
+    SoR *  root = queue->nitems > 0 ? getMin(queue).value : NULL; // если элементов в очереди не осталось, присваиваем корню значение ноль
 
-    queueFree(queue);
+    queueFree(queue); // освобождаем очередь
 
     return root;
 }

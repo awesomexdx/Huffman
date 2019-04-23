@@ -6,8 +6,6 @@
 
 #define __FILENAME__ (strrchr(__FILE__, '\\') ? strrchr(__FILE__, '\\') + 1 : __FILE__)
 
-//#define DEBUG_OUTPUT
-
 //#define BIT_OUTPUT
 
 #define BUFF_SIZE   128
@@ -23,16 +21,16 @@ struct st_tree_node {
 typedef struct {
     FILE * file;
     unsigned int bit_pos; //позиция бита в байте
-    unsigned int byte_pos; //
+    unsigned int byte_pos; // позиция байта
 
-    unsigned char buff[BUFF_SIZE];
+    unsigned char buff[BUFF_SIZE]; // буфер
 
 } BitIOStruct;
 
 
 typedef struct {
-	char * code;
-	size_t length;
+	char * code; //код
+	size_t length; // длина кода
 } Code;
 
 typedef struct st_queueitem QueueItem;

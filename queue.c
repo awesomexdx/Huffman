@@ -4,7 +4,7 @@
 #include "sort.h"
 
 
-Queue *heap_create(unsigned int maxsize)
+Queue *heap_create(unsigned int maxsize) //создание пустой очереди
 {
 	Queue *h;
 
@@ -25,7 +25,7 @@ Queue *heap_create(unsigned int maxsize)
 }
 
 
-QueueItem getMin(Queue *h)
+QueueItem getMin(Queue *h) // извлечение минимального элемента
 {
     if (h->nitems <= 0)
         return h->items[0];
@@ -34,7 +34,7 @@ QueueItem getMin(Queue *h)
 }
 
 
-void queueFree(Queue *h)
+void queueFree(Queue *h) // удаление очереди
 {
     if (h == NULL)
         return;
@@ -44,7 +44,7 @@ void queueFree(Queue *h)
 }
 
 
-int queueInsert(Queue *h, unsigned int priority, SoR *value)
+int queueInsert(Queue *h, unsigned int priority, SoR *value) // добавление элемента в очередь
 {
 	if (h->nitems >= h->maxsize) {
 		fprintf(stderr, "queue: Heap overflow.\n");

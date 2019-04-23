@@ -8,94 +8,96 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/CLionProjects/HuffmanIlux/cmake-build-release"/>
+				<Option working_dir="H:/Huffman/cmake-build-release"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/CLionProjects/HuffmanIlux/cmake-build-release/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/CLionProjects/HuffmanIlux/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/CLionProjects/HuffmanIlux/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/CLionProjects/HuffmanIlux/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/tools/mingw64/bin/mingw32-make.exe -f &quot;H:/Huffman/cmake-build-release/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/tools/mingw64/bin/mingw32-make.exe -f &quot;H:/Huffman/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/tools/mingw64/bin/mingw32-make.exe -f &quot;H:/Huffman/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/tools/mingw64/bin/mingw32-make.exe -f &quot;H:/Huffman/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Huffman">
-				<Option output="C:/CLionProjects/HuffmanIlux/cmake-build-release/Huffman.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/CLionProjects/HuffmanIlux/cmake-build-release"/>
+				<Option output="H:/Huffman/cmake-build-release/Huffman.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="H:/Huffman/cmake-build-release"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
-					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
-					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
+					<Add directory="C://Program Files//Haskell Platform//8.4.3//mingw//bin/../lib/gcc/x86_64-w64-mingw32/7.2.0/include"/>
+					<Add directory="C://Program Files//Haskell Platform//8.4.3//mingw//bin/../lib/gcc/x86_64-w64-mingw32/7.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/Haskell Platform/8.4.3/mingw/bin/../lib/gcc/x86_64-w64-mingw32/7.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/Haskell Platform/8.4.3/mingw/bin/../lib/gcc/x86_64-w64-mingw32/7.2.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/CLionProjects/HuffmanIlux/cmake-build-release/Makefile&quot;  VERBOSE=1 Huffman"/>
-					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/CLionProjects/HuffmanIlux/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/CLionProjects/HuffmanIlux/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/CLionProjects/HuffmanIlux/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/tools/mingw64/bin/mingw32-make.exe -f &quot;H:/Huffman/cmake-build-release/Makefile&quot;  VERBOSE=1 Huffman"/>
+					<CompileFile command="C:/tools/mingw64/bin/mingw32-make.exe -f &quot;H:/Huffman/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/tools/mingw64/bin/mingw32-make.exe -f &quot;H:/Huffman/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/tools/mingw64/bin/mingw32-make.exe -f &quot;H:/Huffman/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Huffman/fast">
-				<Option output="C:/CLionProjects/HuffmanIlux/cmake-build-release/Huffman.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/CLionProjects/HuffmanIlux/cmake-build-release"/>
+				<Option output="H:/Huffman/cmake-build-release/Huffman.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="H:/Huffman/cmake-build-release"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
-					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
-					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
+					<Add directory="C://Program Files//Haskell Platform//8.4.3//mingw//bin/../lib/gcc/x86_64-w64-mingw32/7.2.0/include"/>
+					<Add directory="C://Program Files//Haskell Platform//8.4.3//mingw//bin/../lib/gcc/x86_64-w64-mingw32/7.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/Haskell Platform/8.4.3/mingw/bin/../lib/gcc/x86_64-w64-mingw32/7.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/Haskell Platform/8.4.3/mingw/bin/../lib/gcc/x86_64-w64-mingw32/7.2.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/CLionProjects/HuffmanIlux/cmake-build-release/Makefile&quot;  VERBOSE=1 Huffman/fast"/>
-					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/CLionProjects/HuffmanIlux/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/CLionProjects/HuffmanIlux/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/CLionProjects/HuffmanIlux/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/tools/mingw64/bin/mingw32-make.exe -f &quot;H:/Huffman/cmake-build-release/Makefile&quot;  VERBOSE=1 Huffman/fast"/>
+					<CompileFile command="C:/tools/mingw64/bin/mingw32-make.exe -f &quot;H:/Huffman/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/tools/mingw64/bin/mingw32-make.exe -f &quot;H:/Huffman/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/tools/mingw64/bin/mingw32-make.exe -f &quot;H:/Huffman/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="C:/CLionProjects/HuffmanIlux/cmake-build-release"/>
+				<Option working_dir="H:/Huffman/cmake-build-release"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/CLionProjects/HuffmanIlux/cmake-build-release/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/CLionProjects/HuffmanIlux/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/CLionProjects/HuffmanIlux/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/CLionProjects/HuffmanIlux/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/tools/mingw64/bin/mingw32-make.exe -f &quot;H:/Huffman/cmake-build-release/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/tools/mingw64/bin/mingw32-make.exe -f &quot;H:/Huffman/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/tools/mingw64/bin/mingw32-make.exe -f &quot;H:/Huffman/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/tools/mingw64/bin/mingw32-make.exe -f &quot;H:/Huffman/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/CLionProjects/HuffmanIlux/cmake-build-release"/>
+				<Option working_dir="H:/Huffman/cmake-build-release"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/CLionProjects/HuffmanIlux/cmake-build-release/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/CLionProjects/HuffmanIlux/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/CLionProjects/HuffmanIlux/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/CLionProjects/HuffmanIlux/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/tools/mingw64/bin/mingw32-make.exe -f &quot;H:/Huffman/cmake-build-release/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/tools/mingw64/bin/mingw32-make.exe -f &quot;H:/Huffman/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/tools/mingw64/bin/mingw32-make.exe -f &quot;H:/Huffman/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/tools/mingw64/bin/mingw32-make.exe -f &quot;H:/Huffman/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/CLionProjects/HuffmanIlux/coding.c">
+		<Unit filename="H:/Huffman/coding.c">
 			<Option target="Huffman"/>
 		</Unit>
-		<Unit filename="C:/CLionProjects/HuffmanIlux/coding.h">
+		<Unit filename="H:/Huffman/coding.h">
 			<Option target="Huffman"/>
 		</Unit>
-		<Unit filename="C:/CLionProjects/HuffmanIlux/definitions.h">
+		<Unit filename="H:/Huffman/definitions.h">
 			<Option target="Huffman"/>
 		</Unit>
-		<Unit filename="C:/CLionProjects/HuffmanIlux/main.c">
+		<Unit filename="H:/Huffman/main.c">
 			<Option target="Huffman"/>
 		</Unit>
-		<Unit filename="C:/CLionProjects/HuffmanIlux/queue.c">
+		<Unit filename="H:/Huffman/queue.c">
 			<Option target="Huffman"/>
 		</Unit>
-		<Unit filename="C:/CLionProjects/HuffmanIlux/sort.c">
+		<Unit filename="H:/Huffman/sort.c">
 			<Option target="Huffman"/>
 		</Unit>
-		<Unit filename="C:/CLionProjects/HuffmanIlux/sort.h">
+		<Unit filename="H:/Huffman/sort.h">
 			<Option target="Huffman"/>
 		</Unit>
-		<Unit filename="C:/CLionProjects/HuffmanIlux/CMakeLists.txt">
+		<Unit filename="H:/Huffman/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

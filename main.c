@@ -11,6 +11,7 @@ int huff_test(
     FILE *input_file, *output_file, *buff_file; //указатели на файлы
 
     input_file = fopen("in.txt", "rb"); //открываем файл, который нужно закодировать
+    //input_file = fopen("Big.exe", "rb");
     output_file = fopen("out.txt", "wb"); //открываем файл для записи сжатого файла
     buff_file = fopen("buff.txt", "wb"); //открываем файл для записи раскодированного файле
 
@@ -20,7 +21,6 @@ int huff_test(
     unsigned char file_size[4] = {0};
     unsigned int input_file_len = 0;
 
-    /// ---***--- ///
 
     BitIOStruct bit_struct;
 
@@ -30,7 +30,6 @@ int huff_test(
 
     memset(bit_struct.buff, 0x00, BUFF_SIZE);
 
-    /// ---***--- ///
 
     char buff[256];
 
@@ -62,12 +61,14 @@ int huff_test(
     if (root)
         Make_codes(root, buff, 0, code_array, output_file, &bit_struct);
 
-#ifdef DEBUG_OUTPUT
+
+    /* DEBUG_OUTPUT
     for (int i = 0; i < 256; i++) {
         if (code_array[i] != NULL)
             printf("Char %c %d Code %s\n", i, i, code_array[i]->code);
     }
-#endif
+     */
+
 
     rewind(input_file);
 
@@ -75,11 +76,6 @@ int huff_test(
 
     fclose(input_file);
     fclose(output_file);
-
-
-#ifdef DEBUG_OUTPUT
-    printf("\n- - -\n");
-#endif
 
     output_file = fopen("out.txt", "rb");
 
@@ -95,29 +91,26 @@ int huff_test(
                      + ((unsigned int) file_size[2] << 8)
                      + (unsigned int) file_size[3];
 
-    /// ---***--- ///
-
     bit_struct.file = output_file;
     bit_struct.bit_pos = 8;
     bit_struct.byte_pos = BUFF_SIZE - 1;
 
     memset(bit_struct.buff, 0x00, BUFF_SIZE);
 
-    /// ---***--- ///
-
     if (input_file_len)
     {
         root = read_tree(output_file, &bit_struct);
     }
-#ifdef DEBUG_OUTPUT
+
+   /* DEBUG_OUTPUT
     printf("\n- - -\n");
 
     for (int i = 0; i < 256; i++)
     {
         if (code_array[i] != NULL)
             printf("Char %c %d Code %s\n", i, i, code_array[i]->code);
-    }
-#endif
+    } */
+
 
     decode(output_file, buff_file, root, input_file_len, &bit_struct);
 
@@ -150,15 +143,15 @@ int bit_io_test(
     for (int k = 8 * sizeof(unsigned int) - 1; k >= 0; k--)
     {
         bit = (test_uint >> k) & 0x01;
-#ifdef DEBUG_OUTPUT
-        printf("%d", bit);
-#endif
+        //DEBUG_OUTPUT
+        // printf("%d", bit);
+
         writebit(bit, &bit_struct);
     }
 
-#ifdef DEBUG_OUTPUT
-    printf("\n");
-#endif
+       //DEBUG_OUTPUT
+       // printf("\n");
+
 
     fwrite(bit_struct.buff, 1, bit_struct.byte_pos + (bit_struct.bit_pos ? 1 : 0), output_file);
 
@@ -175,17 +168,15 @@ int bit_io_test(
     for (int k = 8 * sizeof(unsigned int) - 1; k >= 0; k--)
     {
         bit = (unsigned int) readbit(&bit_struct);
-#ifdef DEBUG_OUTPUT
-        printf("%d", bit);
-#endif
+        //DEBUG_OUTPUT
+        //printf("%d", bit);
+
         new_uint += (bit << k);
     }
 
-#ifdef DEBUG_OUTPUT
-    printf("\n");
-
-    printf("Numbers are %s equal", new_uint == test_uint ? "" : "not");
-#endif
+       // DEBUG_OUTPUT
+       // printf("\n");
+       //printf("Numbers are %s equal", new_uint == test_uint ? "" : "not");
 
     return 0;
 }
